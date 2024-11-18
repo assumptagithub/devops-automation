@@ -1,0 +1,17 @@
+name: publish image to Docker Hub
+no:
+  [workflow_dispatch]
+
+jobs:
+  publish-image:
+   runs-on: ubuntu-latest
+   steps:
+     -name: checkout
+     -uses: actions/checkout@4
+     -name: build
+      run: |
+        docker build .-t munjo185/demo-app:latest
+     -name: publish
+      run: |
+        docker push munjo185/de-app:latest      
+ 
